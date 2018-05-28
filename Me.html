@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Me</title>
+    <script src="./Me.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <label>name:</label>
+            <input m-model="name" />
+        </form>
+        <div>
+            note: {{ note }} name: {{ name }} age: {{ age }}
+        </div>
+        <br/>
+        <button m-click="test(2)">button1</button>
+    </div>
+
+    <script>
+        var me = new Me({
+            el: "#app",
+            data: {
+                name: "niexiaotao",
+                age: 16,
+                note: "Student of Zhejiang University",
+                obj: {
+                    data: ' data'
+                }
+            },
+            methods: {
+                test: function (e, addNumber) {
+                    console.log("e:", e);
+                    console.log(this)
+                    this.data.age += Number(addNumber);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
